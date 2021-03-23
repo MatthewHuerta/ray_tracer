@@ -1,7 +1,7 @@
 #ifndef TUPLE_H
 #define TUPLE_H
-#include <iostream>
-#include <math.h>
+
+namespace tracer{
 
 class Tuple
 {
@@ -28,5 +28,5 @@ Tuple negate() const;
 Tuple scale(double);
 
 };
-
+}
 #endif

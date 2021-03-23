@@ -19,9 +19,13 @@ add_subdirectory(
 Point
 )
 
+add_subdirectory(
+Pixel
+)
+
 target_link_libraries(
 test
-PUBLIC Tuple Vector Point
+PUBLIC Tuple Vector Point Pixel
 )
 
 target_include_directories(
@@ -30,4 +34,5 @@ PUBLIC
 Tuple
 Vector
 Point
+Pixel
 )

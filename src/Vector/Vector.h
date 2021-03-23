@@ -2,7 +2,8 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 #include<Tuple.h>
-#include<math.h>
+
+namespace tracer{
 
 class Vector : public Tuple{
 public:
@@ -25,5 +26,5 @@ Vector normalize();
 double dot(Vector);
 
 };
-
+}
 #endif

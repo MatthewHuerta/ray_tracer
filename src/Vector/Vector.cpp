@@ -1,4 +1,8 @@
 #include"Vector.h"
+#include<math.h>
+#include<iostream>
+
+using namespace tracer;
 
 Vector::Vector()
   : Tuple::Tuple(){}

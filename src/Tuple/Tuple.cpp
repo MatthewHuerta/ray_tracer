@@ -1,7 +1,11 @@
 
 #include "Tuple.h"
+#include <iostream>
+#include <math.h>
 
-void Tuple::print(){
+using namespace tracer;
+
+void tracer::Tuple::print(){
         std::cout << std::endl << "< " << this->x << ", " << this->y
                   << ", " << this->z << ", " << this->w << " >" << std::endl
                   << std::endl;
@@ -11,13 +15,13 @@ Tuple::Tuple(){ //called by Point::Point() and Vector::Vector()
         this->x = 0;
         this->y = 0;
         this->z = 0;
-        this->w = 1;
+        this->w = 0;
 }
 Tuple::Tuple(double a, double b, double c){
         x = a;
         y = b;
         z = c;
-        w = 1;
+        w = 0;
 }
 Tuple::Tuple(double a, double b, double c, double d){
         x = a;

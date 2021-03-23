@@ -1,18 +1,18 @@
-message("adding Point library")
+message("adding Pixel library")
 
 add_library(
-  Point
+  Pixel
   STATIC
-  Point.h
-  Point.cpp
+  Pixel.h
+  Pixel.cpp
 )
 target_include_directories(
-  Point
+  Pixel
   PUBLIC
   "../Tuple/"
 )
 target_link_libraries(
-  Point
+  Pixel
   PUBLIC
   Tuple
 )

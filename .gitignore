@@ -1,4 +1,5 @@
 build/
+.autohidefiles
 *.h.gch
 CMakeLists.txt.user
 CMakeCache.txt
