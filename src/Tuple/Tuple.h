@@ -21,11 +21,11 @@ Tuple operator+(const Tuple& b);
 
 Tuple operator-(const Tuple& b);
 
-Tuple operator/(double b);
+Tuple operator/(const double& b);
 
 Tuple negate() const;
 
-Tuple scale(double);
+Tuple scale(const double&);
 
 };
 }

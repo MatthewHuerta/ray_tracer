@@ -1,18 +1,18 @@
-message("adding Pixel library")
+message("adding Color library")
 
 add_library(
-  Pixel
+  Color
   STATIC
-  Pixel.h
-  Pixel.cpp
+  Color.h
+  Color.cpp
 )
 target_include_directories(
-  Pixel
+  Color
   PUBLIC
   "../Tuple/"
 )
 target_link_libraries(
-  Pixel
+  Color
   PUBLIC
   Tuple
 )

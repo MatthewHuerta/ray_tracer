@@ -51,7 +51,7 @@ Tuple Tuple::operator-(const Tuple& b) {
         return result;
 }
 
-Tuple Tuple::operator/(double b) {
+Tuple Tuple::operator/(const double& b) {
         Tuple result = Tuple();
         result.x = (*this).x / b;
         result.y = (*this).y / b;
@@ -69,7 +69,7 @@ Tuple Tuple::negate() const {
         return result;
 }
 
-Tuple Tuple::scale(double a){
+Tuple Tuple::scale(const double& a){
         Tuple result = Tuple();
         result.x = this->x * a;
         result.y = this->y * a;

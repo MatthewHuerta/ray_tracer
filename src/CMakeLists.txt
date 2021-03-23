@@ -20,19 +20,19 @@ Point
 )
 
 add_subdirectory(
-Pixel
+Color
 )
 
 target_link_libraries(
 test
-PUBLIC Tuple Vector Point Pixel
+PRIVATE Tuple Vector Point Color
 )
 
 target_include_directories(
 test
-PUBLIC
+PRIVATE
 Tuple
 Vector
 Point
-Pixel
+Color
 )

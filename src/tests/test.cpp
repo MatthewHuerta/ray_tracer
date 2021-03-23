@@ -1,20 +1,21 @@
 #include<iostream>
 #include<Point.h>
 #include<Vector.h>
-#include<Pixel.h>
+#include<Color.h>
 
 using namespace tracer;
 
 int main(){
 
-Vector red = Vector(255, 0, 0);
-red.print();
+Color c1 = Color(1, .2, .4);
+c1.print();
 
-Point my_p = Point(2, 2, 2);
-my_p.print();
+Color c2 = Color(.9, 1, .1);
+c2.print();
 
-Pixel pix = Pixel(3, 4, 5);
-pix.print();
+Color newcolor = c1*c2;
+newcolor.print();
+
 
   return 0;
 }
