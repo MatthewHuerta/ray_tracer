@@ -23,3 +23,11 @@ target_link_libraries(
 test
 PUBLIC Tuple Vector Point
 )
+
+target_include_directories(
+test
+PUBLIC
+Tuple
+Vector
+Point
+)
