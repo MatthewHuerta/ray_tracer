@@ -27,24 +27,24 @@ Color::Color(const Tuple& b){
 }
 
 bool Color::operator==(const Color& b)
-  {
-          return ((x==b.x)&&(y==b.y)&&(z==b.z));
-  }
+{
+        return ((x==b.x)&&(y==b.y)&&(z==b.z));
+}
 
 
-  bool Color::operator!=(const Color& b)
-    {
-            return !(*this == b);
-    }
+bool Color::operator!=(const Color& b)
+{
+        return !(*this == b);
+}
 
 Color Color::operator*(const Color& b)
-  {
-          Color result = Color();
-          result.x = ((*this).x * b.x);
-          result.y = ((*this).y * b.y);
-          result.z = ((*this).z * b.z);
-          return result;
-  }
+{
+        Color result = Color();
+        result.x = ((*this).x * b.x);
+        result.y = ((*this).y * b.y);
+        result.z = ((*this).z * b.z);
+        return result;
+}
 
 void Color::print(){
         std::cout << std::endl << "< " << this->x << ", " << this->y
