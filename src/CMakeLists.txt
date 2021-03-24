@@ -7,6 +7,8 @@ test
 "${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp"
 )
 
+set_property(TARGET test PROPERTY CXX_STANDARD 20)
+
 add_subdirectory(
 Tuple
 )
@@ -23,9 +25,13 @@ add_subdirectory(
 Color
 )
 
+add_subdirectory(
+Canvas
+)
+
 target_link_libraries(
 test
-PRIVATE Tuple Vector Point Color
+PRIVATE Tuple Vector Point Color Canvas
 )
 
 target_include_directories(
@@ -35,4 +41,5 @@ Tuple
 Vector
 Point
 Color
+Canvas
 )

@@ -10,6 +10,8 @@ Color();
 Color(double, double, double);
 Color(const Color&);
 Color(const Tuple&);
+bool operator==(const Color& b);
+bool operator!=(const Color& b);
 Color operator*(const Color& b);
 void print();
 

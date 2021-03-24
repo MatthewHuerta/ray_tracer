@@ -1,5 +1,7 @@
 build/
 .autohidefiles
+scratch
+scratch.cpp
 *.h.gch
 CMakeLists.txt.user
 CMakeCache.txt

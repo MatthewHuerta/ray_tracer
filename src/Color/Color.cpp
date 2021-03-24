@@ -26,6 +26,17 @@ Color::Color(const Tuple& b){
         w = b.w;
 }
 
+bool Color::operator==(const Color& b)
+  {
+          return ((x==b.x)&&(y==b.y)&&(z==b.z));
+  }
+
+
+  bool Color::operator!=(const Color& b)
+    {
+            return !(*this == b);
+    }
+
 Color Color::operator*(const Color& b)
   {
           Color result = Color();

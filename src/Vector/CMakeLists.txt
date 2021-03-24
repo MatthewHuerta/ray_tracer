@@ -1,5 +1,5 @@
 message("adding Vector library")
-message("Vector Current source directory: ${CMAKE_CURRENT_SOURCE_DIR}")
+# message("Vector Current source directory: ${CMAKE_CURRENT_SOURCE_DIR}")
 
 add_library(
   Vector
