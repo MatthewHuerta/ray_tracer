@@ -10,9 +10,11 @@ target_include_directories(
   Canvas
   PUBLIC
   "../Color/"
+  "../tests/"
 )
 target_link_libraries(
   Canvas
   PUBLIC
   Color
+  Debug
 )

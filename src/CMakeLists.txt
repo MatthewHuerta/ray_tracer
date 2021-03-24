@@ -9,6 +9,18 @@ test
 
 set_property(TARGET test PROPERTY CXX_STANDARD 20)
 
+add_library(
+  Debug
+  STATIC
+  "${CMAKE_CURRENT_SOURCE_DIR}/tests/Debug.cpp"
+)
+target_include_directories(
+  Debug
+  PUBLIC
+  "tests"
+)
+
+
 add_subdirectory(
 Tuple
 )

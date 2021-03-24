@@ -1,8 +1,13 @@
+#define DEBUG 1
+#include <Debug.cpp>
 #include "Canvas.h"
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
 #include <string>
+
+
+
 
 using namespace tracer;
 
@@ -58,16 +63,15 @@ void Canvas::write_ppm(){
         std::fstream fs("image.ppm", std::ios::out);
         if(fs.is_open())
         {
-                // std::cout << std::endl << "made it this far.. I think" << std::endl;
                 fs << "P3" << '\n';
                 fs << width << " " << height << '\n';
                 fs << "255" << '\n';
-                std::cout << "canvas height: " << height << "canvas width: " << width << std::endl;
-                std::cout << "box.size(): " << box.size() << std::endl;
+                LOG("canvas height: " << height << "canvas width: " << width);
+                LOG("box.size(): " << box.size());
                 for(unsigned int i = 0; i < box.size();) {
-                        std::cout << "box[i]: " << i << std::endl;
+                        LOG("box[i]: " << i );
                         for(unsigned int h = 0; h < height; h++) {
-                                std::cout << "height : " << height << std::endl;
+                                LOG("height : " << height);
                                 for(unsigned int w; w <= width; w++) {
                                         if (w==width-1) {
                                                 fs << ((box[i]).x * 255) << " " << ((box[i]).y * 255) <<" "<< ((box[i]).z * 255) << '\n';
@@ -75,7 +79,7 @@ void Canvas::write_ppm(){
                                                 i++;
                                                 return;
                                         } else{
-                                                std::cout << ((box[i]).x * 255) << " " << ((box[i]).y * 255) <<" "<< ((box[i]).z * 255) << " ";
+                                                LOG(((box[i]).x * 255) << " " << ((box[i]).y * 255) <<" "<< ((box[i]).z * 255) << " ");
                                                 fs << ((box[i]).x * 255) << " " << ((box[i]).y * 255) <<" "<< ((box[i]).z * 255) << " ";
                                                 i++;
                                         }
