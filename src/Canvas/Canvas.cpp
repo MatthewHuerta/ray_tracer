@@ -1,6 +1,8 @@
 #include "Canvas.h"
 #include <stdexcept>
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace tracer;
 
@@ -48,4 +50,18 @@ Color Canvas::pixel_at(unsigned int x, unsigned int y){
                 std::cout<< e.what() << '\n';
         }
         return box[((y*width) + x)];
+}
+
+void Canvas::write_ppm(){
+std::fstream fs("image.ppm", std::ios::out);
+if(fs.is_open())
+{
+fs << "P3" << '\n';
+fs << width << " " << height << '\n';
+fs << "255" << '\n';
+fs.close();
+} else std::cout << std::endl << "enable to open file";
+
+
+
 }

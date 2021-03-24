@@ -20,6 +20,8 @@ namespace tracer {
 
             Color pixel_at(unsigned int, unsigned int);
 
+            void write_ppm();
+
         };
 }
 #endif
