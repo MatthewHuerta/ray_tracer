@@ -4,7 +4,7 @@ project(ray_tracer LANGUAGES CXX)
 
 add_executable(
 test
-"${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp"
+tests/test.cpp
 )
 
 set_property(TARGET test PROPERTY CXX_STANDARD 20)
@@ -12,33 +12,33 @@ set_property(TARGET test PROPERTY CXX_STANDARD 20)
 add_library(
   Debug
   STATIC
-  "${CMAKE_CURRENT_SOURCE_DIR}/tests/Debug.cpp"
+  tests/Debug.cpp
 )
 target_include_directories(
   Debug
   PUBLIC
-  "tests"
+  tests
 )
 
 
 add_subdirectory(
-Tuple
+        Tuple
 )
 
 add_subdirectory(
-Vector
+        Vector
 )
 
 add_subdirectory(
-Point
+       Point
 )
 
 add_subdirectory(
-Color
+        Color
 )
 
 add_subdirectory(
-Canvas
+        Canvas
 )
 
 target_link_libraries(
