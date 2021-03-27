@@ -3,21 +3,21 @@ cmake_minimum_required(VERSION 3.2)
 project(ray_tracer LANGUAGES CXX)
 
 add_executable(
-test
-tests/test.cpp
+        test
+        tests/test.cpp
 )
 
 set_property(TARGET test PROPERTY CXX_STANDARD 20)
 
 add_library(
-  Debug
-  STATIC
-  tests/Debug.cpp
+        Debug
+        STATIC
+        tests/Debug.cpp
 )
 target_include_directories(
-  Debug
-  PUBLIC
-  tests
+        Debug
+        PUBLIC
+        tests
 )
 
 
@@ -30,7 +30,7 @@ add_subdirectory(
 )
 
 add_subdirectory(
-       Point
+        Point
 )
 
 add_subdirectory(
@@ -41,17 +41,22 @@ add_subdirectory(
         Canvas
 )
 
+add_subdirectory(
+        Matrix
+)
+
 target_link_libraries(
-test
-PRIVATE Tuple Vector Point Color Canvas
+        test
+        PRIVATE Tuple Vector Point Color Canvas Matrix
 )
 
 target_include_directories(
-test
-PRIVATE
-Tuple
-Vector
-Point
-Color
-Canvas
+        test
+        PRIVATE
+        Tuple
+        Vector
+        Point
+        Color
+        Canvas
+        Matrix
 )

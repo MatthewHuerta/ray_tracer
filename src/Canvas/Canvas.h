@@ -13,17 +13,19 @@ bool swtch = false;
 
 std::vector<Color> box;
 
-void except(unsigned int);
+static void except(unsigned int);
 
-void except2(int);
+static void except2(int);
 
-int count_digits(int);
+static int count_digits(int);
 
-void printfill(const int&);
+static double scale_color(const double& c);
+
+static void printfill(const double&);
 
 void strobe();
 
-void stop_strobe();
+static void stop_strobe();
 
 void print_canvas();
 
