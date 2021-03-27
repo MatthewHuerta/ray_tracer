@@ -9,18 +9,18 @@ using namespace tracer;
 
 int main() {
 
-    Matrix M = Matrix(3, 3);
+    Matrix M = Matrix(4, 4);
     double k = 0;
         for (int j = 0; j < M.y; j++) {
             for (int i = 0; i < M.x; i++) {
-                M[i][j] = k;
-                k++;
+               M.matrix[i][j] = k;
+               k++;
             }
         }
 
     M.print();
 
-    std::cout << std::endl << M[1][2] << std::endl;
+    std::cout << std::endl << M.matrix[1][2] << std::endl;
 
 
 

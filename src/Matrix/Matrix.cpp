@@ -35,13 +35,14 @@ Matrix::Matrix(unsigned short a, unsigned short b, double val) {
 }
 
 void Matrix::print() {
-    for (int j = 0; j < this->y; j++) {
+
         std::cout << std::endl;
-        for (int i = 0; i < this->x; i++) {
-            std::cout << this->matrix[i][j] << ' ';
+        for (int i = 0; i < size; i++) {
+            if(i%x == x-1)
+                std::cout << matrix[i%x][i/y] << '\n';
+            else
+                std::cout << matrix[i%x][i/y] << ' ';
         }
-    }
-    std::cout<<std::endl;
 }
 
     Matrix::Row::Row(Matrix* mat, int row){
