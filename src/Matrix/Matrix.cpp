@@ -41,7 +41,7 @@ void Matrix::print() {
             if(i%x == x-1)
                 std::cout << matrix[i%x][i/y] << '\n';
             else
-                std::cout << matrix[i%x][i/y] << ' ';
+                std::cout << *(*( matrix + i%x) + i/y) << ' ';
         }
 }
 
