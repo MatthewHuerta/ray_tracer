@@ -6,8 +6,8 @@ namespace tracer {
         struct Row{
             Matrix* m;
             int this_row;
-            explicit Row(Matrix* mat, int row);
-            double& operator[](int i) const;
+            explicit Row(Matrix* mat, const int& row);
+            double& operator[](const int& i) const;
         };
     public:
         unsigned short x;
@@ -20,7 +20,11 @@ namespace tracer {
                         {0, 0, 0, 0}
         };
 //        double operator()(const unsigned short& x, const unsigned short& y);
-        Row& operator[](int);
+        Row& operator[](const int&);
+        bool operator==(const Matrix&) const;
+        bool operator!=(const Matrix&) const;
+        Matrix operator*(const Matrix&) const;
+        Matrix& operator=(double m[4][4]);
         Matrix();
         Matrix(unsigned short x, unsigned short y);
         Matrix(unsigned short x, unsigned short y, double val);

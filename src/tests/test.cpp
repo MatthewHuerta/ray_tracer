@@ -10,17 +10,30 @@ using namespace tracer;
 int main() {
 
     Matrix M = Matrix(4, 4);
-    double k = 0;
-        for (int j = 0; j < M.y; j++) {
-            for (int i = 0; i < M.x; i++) {
-               M.matrix[i][j] = k;
-               k++;
-            }
-        }
+    Matrix N = Matrix(4, 4);
 
+        double k[4][4] = {
+            {1,2,3,4},
+            {5,6,7,8},
+            {9,8,7,6},
+            {5,4,3,2}
+        };
+
+    double l[4][4] = {
+            {-2,1,2,3},
+            {3,2,1,-1},
+            {4,3,6,5},
+            {1,2,7,8}
+    };
+    M = k;
+    N = l;
+    Matrix O = M*N;
     M.print();
+    N.print();
+    O.print();
+    std::cout<<std::endl<<O[3][2]<<std::endl;
 
-    std::cout << std::endl << M.matrix[1][2] << std::endl;
+    std::cout << std::endl << (M==N) << std::endl;
 
 
 
