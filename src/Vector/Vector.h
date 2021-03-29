@@ -17,13 +17,13 @@ Vector(const Vector& b);
 
 Vector operator*(const Vector& b); //Cross-product
 
-void print();
+void print() override;
 
 double magnitude();
 
 Vector normalize();
 
-double dot(Vector);
+double dot(const Vector&);
 
 };
 }

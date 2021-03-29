@@ -11,7 +11,7 @@ public:
 
 Point();
 Point(double, double, double);
-void print();
+void print() override;
 
 };
 

@@ -7,13 +7,13 @@ add_library(
         Matrix.h
         Matrix.cpp
 )
-#target_include_directories(
-#
-#        PUBLIC
-#        "../Tuple/"
-#)
-#target_link_libraries(
-#        Matrix
-#        PUBLIC
-#        Tuple
-#)
+target_include_directories(
+        Matrix
+        PUBLIC
+        "../Tuple/"
+)
+target_link_libraries(
+        Matrix
+        PUBLIC
+        Tuple
+)

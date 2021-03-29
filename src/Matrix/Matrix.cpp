@@ -25,7 +25,6 @@ bool Matrix::operator== (const Matrix& m)const{
 }
 
 Matrix& Matrix::operator= (double m[4][4]){
-    double k = 0;
         for(int j = 0; j < y; j++) {
             for (int i = 0; i < x; i++) {
                matrix[j][i] = m[j][i];
@@ -52,6 +51,18 @@ Matrix Matrix::operator*(const Matrix& other) const{
     return m;
 }
 
+Tuple Matrix::operator*(const Tuple& t) const{
+    Tuple r = Tuple();
+    for(int a = 0; a < y; a++){
+            double sum = 0;
+            for(int i = 0; i < x; i++){
+                sum += matrix[a][i] * t.t[i];
+            }
+            r.t[a] = sum;
+        }
+    return r;
+}
+
 Matrix::Matrix() {
     x = 0;
     y = 0;
@@ -75,6 +86,17 @@ Matrix::Matrix(unsigned short a, unsigned short b, double val) {
     }
 }
 
+Matrix::Matrix(char c){
+    x = 4;
+    y = 4;
+    size = 16;
+    if(c == 'i' || c =='I'){
+        for(int i = 0; i < 4; i++){
+            matrix[i][i] = 1;
+        }
+    }
+}
+
 void Matrix::print() {
     std::cout<<std::endl;
 for(int a = 0; a < y; a++){
@@ -85,8 +107,34 @@ for(int a = 0; a < y; a++){
 }
 }
 
+Matrix Matrix::t() const {
+    Matrix m = Matrix(y, x);
+    for(int j = 0; j < y; j++) {
+        for (int i = 0; i < x; i++) {
+            m.matrix[i][j] = matrix[j][i];
+        }
+    }
+    return m;
+}
 
-    Matrix::Row::Row(Matrix* mat, const int& row){
+Matrix Matrix::sub(short Y, short X){
+    Matrix m = Matrix(x-1, y-1);
+    int A = 0;
+    int B = 0;
+    for(int a = 0; a < y; a++){
+        if(a==Y) continue;
+        for(int b = 0; b < x; b++){
+            if(b==X)continue;
+            else{
+                m.matrix[B][A] = matrix[b][a];
+            }
+        }
+    }
+    return m;
+}
+
+
+Matrix::Row::Row(Matrix* mat, const int& row){
         m = mat;
         this_row = row;
     };

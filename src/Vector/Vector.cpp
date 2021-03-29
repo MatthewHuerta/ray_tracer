@@ -51,7 +51,7 @@ Vector Vector::normalize(){
   return result;
 }
 
-double Vector::dot(Vector b){
+double Vector::dot(const Vector& b){
   return ((this->x * b.x) + (this->y * b.y)
   + (this->z * b.z));
 }

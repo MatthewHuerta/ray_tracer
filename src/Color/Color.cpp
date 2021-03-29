@@ -51,3 +51,5 @@ void Color::print(){
                   << ", " << this->z << " >" << std::endl
                   << std::endl;
 }
+
+
