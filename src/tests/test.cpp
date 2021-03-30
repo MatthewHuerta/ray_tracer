@@ -27,8 +27,8 @@ int main() {
 
     M = k;
     M.print();
-    M = l;
-    M.print();
+    Matrix N = M.sub(3,3);
+    N.print();
 
 return 0;
 }

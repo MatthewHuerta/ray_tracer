@@ -1,7 +1,13 @@
 #include"Matrix.h"
 #include<iostream>
 
+
 using namespace tracer;
+
+void Matrix::except(unsigned int p, const std::string& function_name) {
+    std::cout << "\u001b[31m ERROR: Matrix component '\u001b[33m" << p << "\u001b[31m' in function \u001b[33m"<< function_name << std::endl;
+    throw std::runtime_error("\u001b[31m argument out of range \u001b[0m");
+}
 
 
 Matrix::Row& Matrix::operator[](const int& i) {
@@ -102,7 +108,7 @@ for(int a = 0; a < y; a++){
 }
 }
 
-Matrix Matrix::t() const {
+Matrix Matrix::transpose() const {
     Matrix m = Matrix(y, x);
     for(int j = 0; j < y; j++) {
         for (int i = 0; i < x; i++) {
@@ -112,16 +118,33 @@ Matrix Matrix::t() const {
     return m;
 }
 
-Matrix Matrix::sub(short Y, short X){
+Matrix Matrix::sub(short X, short Y){
+    try{
+    if(X>=x){
+        Matrix::except(X, "Matrix::sub(X,Y)");
+    } else if(Y>=y){
+        Matrix::except(Y, "Matrix::sub(X,Y)");
+    }}
+    catch(std::exception const &e) {
+        std::cout << e.what() << '\n';
+        exit(1);
+    }
     Matrix m = Matrix(x-1, y-1);
     int A = 0;
     int B = 0;
     for(int a = 0; a < y; a++){
-        if(a==Y) continue;
+        if(a==Y){
+            continue;
+        }
         for(int b = 0; b < x; b++){
-            if(b==X)continue;
-            else{
-                m.matrix[B][A] = matrix[b][a];
+            if(b==X) {
+                continue;
+            }
+                m.matrix[A][B] = matrix[a][b];
+            B++;
+            if(B==m.x) {
+                A++;
+                B=0;
             }
         }
     }

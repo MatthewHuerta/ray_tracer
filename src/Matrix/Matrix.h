@@ -2,6 +2,7 @@
 #define RAY_TRACER_MATRIX_H
 
 #include "Tuple.h"
+#include<string>
 
 namespace tracer {
 
@@ -37,9 +38,10 @@ namespace tracer {
         Matrix(unsigned short x, unsigned short y, double val);
         explicit Matrix(char);
         Matrix(const Matrix&);
-        [[nodiscard]] Matrix t() const;
+        [[nodiscard]] Matrix transpose() const;
         void print();
         Matrix sub(short, short);
+        void except(unsigned int p, const std::string&);
     };
 }
 
