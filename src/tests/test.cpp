@@ -10,7 +10,7 @@ using namespace tracer;
 
 int main() {
 
-    auto M = Matrix();
+    Matrix M = Matrix();
 
 //
         double k[3][3] = {
@@ -18,9 +18,17 @@ int main() {
             {-3,2,7},
             {0,6,-3}
         };
+    double l[4][4] = {
+            {2,-1,5,0},
+            {7,-3,2,7},
+            {2,0,6,-3},
+            {6,2,-6,8}
+    };
+
     M = k;
     M.print();
-    N.print();
+    M = l;
+    M.print();
 
 return 0;
 }

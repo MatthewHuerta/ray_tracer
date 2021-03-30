@@ -3,9 +3,7 @@
 
 using namespace tracer;
 
-//double Matrix::operator()(const unsigned short& a, const unsigned short& b){
-//    return this->matrix[a][b];
-//}
+
 Matrix::Row& Matrix::operator[](const int& i) {
     Row* r = new Row(this, i);
     return *r;
@@ -22,15 +20,6 @@ bool Matrix::operator== (const Matrix& m)const{
         }
     }
     return true;
-}
-
-Matrix& Matrix::operator= (double m[4][4]){
-        for(int j = 0; j < y; j++) {
-            for (int i = 0; i < x; i++) {
-               matrix[j][i] = m[j][i];
-            }
-        }
-        return *this;
 }
 
 bool Matrix::operator!= (const Matrix& m) const{
@@ -66,19 +55,16 @@ Tuple Matrix::operator*(const Tuple& t) const{
 Matrix::Matrix() {
     x = 0;
     y = 0;
-    size = 0;
 }
 
 Matrix::Matrix(unsigned short a, unsigned short b) {
     x = a;
     y = b;
-    size = a*b;
 }
 
 Matrix::Matrix(unsigned short a, unsigned short b, double val) {
     x = a;
     y = b;
-    size = a*b;
     for (int i = 0; i < y; i++) {
         for (int j = 0; j < x; j++) {
             matrix[i][j] = val;
@@ -89,10 +75,19 @@ Matrix::Matrix(unsigned short a, unsigned short b, double val) {
 Matrix::Matrix(char c){
     x = 4;
     y = 4;
-    size = 16;
     if(c == 'i' || c =='I'){
         for(int i = 0; i < 4; i++){
             matrix[i][i] = 1;
+        }
+    }
+}
+
+Matrix::Matrix(const tracer::Matrix& M){
+    x = M.x;
+    y = M.y;
+    for(int j = 0; j < y; j++) {
+        for (int i = 0; i < x; i++) {
+            matrix[j][i] = M.matrix[j][i];
         }
     }
 }
