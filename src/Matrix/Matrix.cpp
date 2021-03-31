@@ -5,7 +5,7 @@
 using namespace tracer;
 
 void Matrix::except(unsigned int p, const std::string& function_name) {
-    std::cout << "\u001b[31m ERROR: Matrix component '\u001b[33m" << p << "\u001b[31m' in function \u001b[33m"<< function_name << std::endl;
+    std::cout << "\u001b[31m ERROR: sub-matrix parameter '\u001b[33m" << p << "\u001b[31m' in function \u001b[33m"<< function_name << std::endl;
     throw std::runtime_error("\u001b[31m argument out of range \u001b[0m");
 }
 
