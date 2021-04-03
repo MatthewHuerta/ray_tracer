@@ -14,9 +14,9 @@ int main() {
 
 //
         double k[3][3] = {
-            {1,5,0},
-            {-3,2,7},
-            {0,6,-3}
+            {3,5,0},
+            {2,-1,-7},
+            {6,-1,5}
         };
     double l[4][4] = {
             {2,-1,5,0},
@@ -27,8 +27,10 @@ int main() {
 
     M = k;
     M.print();
-    Matrix N = M.sub(3,3);
+    Matrix N = M.sub(1,0);
     N.print();
+
+    std::cout<< std::endl << M.cofactor(1,0) << std::endl;
 
 return 0;
 }

@@ -41,6 +41,8 @@ namespace tracer {
         [[nodiscard]] Matrix transpose() const;
         void print();
         Matrix sub(short, short);
+        double det();
+        double cofactor(unsigned, unsigned);
         void except(unsigned int p, const std::string&);
     };
 }
