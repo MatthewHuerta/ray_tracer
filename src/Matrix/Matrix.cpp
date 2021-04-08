@@ -94,8 +94,8 @@ Matrix::Matrix(char c) {
 Matrix::Matrix(const tracer::Matrix &M) {
     x = M.x;
     y = M.y;
-    for (int j = 0; j < y; j++) {
-        for (int i = 0; i < x; i++) {
+     for (int i = 0; i < x; i++){
+         for (int j = 0; j < y; j++){
             matrix[j][i] = M.matrix[j][i];
         }
     }
@@ -121,7 +121,7 @@ Matrix Matrix::transpose() const {
     return m;
 }
 
-Matrix Matrix::sub(short Y, short X) {
+Matrix Matrix::sub(unsigned Y, unsigned X) {
     try {
         if (X >= x) {
             Matrix::except(X, "Matrix::sub(X,Y)");
@@ -159,8 +159,11 @@ double Matrix::det(){
     if(x == 2 && y ==2){
         return (matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]);
     }
-
-    return 0;
+    double sum = 0;
+    for(int X = 0; X < x; X++){
+        sum+= matrix[0][X] * this->cofactor(0, X);
+    }
+    return sum;
 }
 
 double Matrix::cofactor(unsigned Y, unsigned X){

@@ -40,7 +40,7 @@ namespace tracer {
         Matrix(const Matrix&);
         [[nodiscard]] Matrix transpose() const;
         void print();
-        Matrix sub(short, short);
+        Matrix sub(unsigned, unsigned);
         double det();
         double cofactor(unsigned, unsigned);
         void except(unsigned int p, const std::string&);
