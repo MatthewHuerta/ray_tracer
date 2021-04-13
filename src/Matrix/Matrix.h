@@ -42,8 +42,10 @@ namespace tracer {
         void print();
         Matrix sub(unsigned, unsigned);
         double det();
+        Matrix invert();
         double cofactor(unsigned, unsigned);
         void except(unsigned int p, const std::string&);
+        void except_invert();
     };
 }
 

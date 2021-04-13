@@ -11,6 +11,10 @@ void Matrix::except(unsigned int p, const std::string &function_name) {
     throw std::runtime_error("\u001b[31m argument out of range \u001b[0m");
 }
 
+void Matrix::except_invert() {
+    throw std::runtime_error("\u001b[31m ERROR: matrix is not invertable \u001b[0m");
+}
+
 
 Matrix::Row &Matrix::operator[](const int &i) {
     Row *r = new Row(this, i);
@@ -94,8 +98,8 @@ Matrix::Matrix(char c) {
 Matrix::Matrix(const tracer::Matrix &M) {
     x = M.x;
     y = M.y;
-     for (int i = 0; i < x; i++){
-         for (int j = 0; j < y; j++){
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
             matrix[j][i] = M.matrix[j][i];
         }
     }
@@ -155,19 +159,19 @@ Matrix Matrix::sub(unsigned Y, unsigned X) {
     return m;
 }
 
-double Matrix::det(){
-    if(x == 2 && y ==2){
+double Matrix::det() {
+    if (x == 2 && y == 2) {
         return (matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]);
     }
     double sum = 0;
-    for(int X = 0; X < x; X++){
-        sum+= matrix[0][X] * this->cofactor(0, X);
+    for (int X = 0; X < x; X++) {
+        sum += matrix[0][X] * this->cofactor(0, X);
     }
     return sum;
 }
 
-double Matrix::cofactor(unsigned Y, unsigned X){
-return (std::pow(-1,(X+Y+2)) * sub(Y,X).det());
+double Matrix::cofactor(unsigned Y, unsigned X) {
+    return (std::pow(-1, (X + Y + 2)) * sub(Y, X).det());
 }
 
 Matrix::Row::Row(Matrix *mat, const int &row) {
@@ -179,4 +183,19 @@ double &Matrix::Row::operator[](const int &i) const {
     double *res = &(m->matrix[i][this_row]);
     delete (this);
     return *res;
+}
+
+Matrix Matrix::invert() {
+    try {
+        if (this->det() == 0) {
+            Matrix::except_invert();
+        }
+    }
+    catch (std::exception const &e) {
+        std::cout << e.what() << '\n';
+        exit(1);
+    }
+    Matrix I = Matrix(*this);
+
+
 }

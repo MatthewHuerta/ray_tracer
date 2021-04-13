@@ -1,4 +1,4 @@
-message("adding Color library")
+ message("adding Color library")
 
 add_library(
   Color
