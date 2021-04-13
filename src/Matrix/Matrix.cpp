@@ -186,8 +186,9 @@ double &Matrix::Row::operator[](const int &i) const {
 }
 
 Matrix Matrix::invert() {
+    double d = this->det();
     try {
-        if (this->det() == 0) {
+        if (d == 0) {
             Matrix::except_invert();
         }
     }
@@ -196,6 +197,18 @@ Matrix Matrix::invert() {
         exit(1);
     }
     Matrix I = Matrix(*this);
+    for(unsigned short i = 0; i < y; i++){
+        for(unsigned short j = 0; j < x; j++){
+            I.matrix[i][j] = this->cofactor(i, j);
+        }
+    }
+    I = I.transpose();
 
+    for(unsigned short i = 0; i < y; i++){
+        for(unsigned short j = 0; j < x; j++){
+            I.matrix[i][j] = I.matrix[i][j] / d;
+        }
+    }
 
+    return I;
 }

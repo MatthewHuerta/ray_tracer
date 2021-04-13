@@ -5,6 +5,7 @@
 //#include<Canvas.h>
 #include "Tuple.h"
 #include"Matrix.h"
+#include"../tests/Debug.cpp"
 
 using namespace tracer;
 
@@ -27,15 +28,17 @@ int main() {
             {0,0,0,0}
     };
     double p[4][4] = {
-            {2,4,5,0},
-            {7,8,2,7},
-            {-2,0,6,-3},
-            {-6,1,-6,8}
+            {8,-5,9,2},
+            {7,5,6,1},
+            {-6,0,9,6},
+            {-3,0,-9,-4}
     };
 
-    M = l;
+    M = p;
     N = M.invert();
-    N.print();
+
+    TIME(N.print())
+    TIME(M.print())
 
     return 0;
 }
